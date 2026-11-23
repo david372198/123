@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 輔助專注力監測系統｜教學簡報</title>
+<style>
+:root{--bg:#f3f6fa;--paper:#fff;--ink:#1f2937;--muted:#64748b;--accent:#2563eb;--line:#dbe3ee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink)}
+.deck{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.slide{display:none;width:min(100%,1000px);min-height: min(680px, calc(100vh - 110px));background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(24px,5vw,58px);box-shadow:0 12px 36px rgba(15,23,42,.08);position:relative}
+.slide.active{display:flex;flex-direction:column}
+.kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:.88rem}
+h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.2;margin:.5em 0}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:.35em 0 .8em}
+h3{margin:.2em 0 .45em;font-size:1.1rem}
+p,li{font-size:clamp(1rem,1.7vw,1.15rem);line-height:1.75}
+.lead{font-size:1.25rem;color:var(--muted);max-width:720px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:14px}
+.card{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fbfdff}
+.card p{margin:.3em 0 0;color:var(--muted);font-size:1rem}
+.pill{display:inline-block;background:#eaf1ff;color:#1d4ed8;padding:5px 10px;border-radius:999px;font-size:.85rem;font-weight:700}
+.flow{display:flex;flex-direction:column;align-items:stretch;gap:8px;max-width:650px;margin:10px auto}
+.step{padding:13px 18px;border:1px solid #bfdbfe;background:#eff6ff;border-radius:10px;text-align:center;font-weight:700}
+.arrow{text-align:center;color:var(--accent);font-size:1.3rem}
+.note{border-left:4px solid var(--accent);padding:10px 16px;background:#f8fbff;margin-top:14px;color:#334155}
+.small{font-size:.9rem;color:var(--muted);line-height:1.6}
+ul{padding-left:1.3em}
+.footer{margin-top:auto;padding-top:18px;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between}
+.controls{position:fixed;bottom:18px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:14px;z-index:5}
+button{border:0;background:var(--accent);color:white;padding:10px 18px;border-radius:9px;font-size:1rem;cursor:pointer}
+button:disabled{background:#94a3b8;cursor:not-allowed}
+#count{min-width:60px;text-align:center;color:#475569;font-weight:700}
+@media(max-width:650px){.deck{padding:10px}.slide{padding:24px 20px 30px;min-height:calc(100vh - 90px)}.grid{grid-template-columns:1fr}.controls{bottom:8px}.footer{font-size:.75rem}}
+@media print{body{background:white}.deck{display:block;padding:0}.slide{display:flex!important;min-height:95vh;width:100%;box-shadow:none;border:0;border-radius:0;page-break-after:always}.controls{display:none}}
+</style>
+</head>
+<body>
+<main class="deck">
+<section class="slide active">
+  <span class="kicker">LLM WIKI 教學簡報</span>
+  <h1>AI 輔助專注力<br>監測系統</h1>
+  <p class="lead">從生理訊號、機器學習到資料視覺化，認識一套專注力監測系統的基本概念。</p>
+  <div style="margin-top:34px"><span class="pill">NotebookLM 知識庫整理</span> <span class="pill">HTML 教學簡報</span></div>
+  <div class="footer"><span>主題：AI 輔助專注力監測系統</span><span>01 / 06</span></div>
+</section>
+
+<section class="slide">
+  <span class="kicker">01｜研究動機</span>
+  <h2>為什麼需要專注力監測？</h2>
+  <p>在讀書或工作時，專注狀態會受到任務難度、疲勞、情緒與環境等因素影響。若能適當整理生理訊號與任務資料，就有機會提供使用者參考。</p>
+  <div class="grid">
+    <div class="card"><h3>研究目的</h3><p>了解如何收集生理訊號，並運用 AI 分析資料。</p></div>
+    <div class="card"><h3>呈現方式</h3><p>將分析結果整理成圖表，幫助使用者觀察變化。</p></div>
+    <div class="card"><h3>重要提醒</h3><p>心率不是專注力的直接測量值，不能單獨作為判斷依據。</p></div>
+    <div class="card"><h3>使用定位</h3><p>系統結果適合作為輔助參考，不應視為醫療診斷或絕對結論。</p></div>
+  </div>
+  <div class="footer"><span>研究動機與目的</span><span>02 / 06</span></div>
+</section>
+
+<section class="slide">
+  <span class="kicker">02｜知識來源</span>
+  <h2>Wiki 使用的六篇資料</h2>
+  <div class="grid">
+    <div class="card"><h3>1. 生理指標系統性回顧</h3><p>整理心血管、眼動、腦電等心智負荷指標。</p></div>
+    <div class="card"><h3>2. NASA Task Load Index</h3><p>介紹六個面向的主觀工作負荷評估。</p></div>
+    <div class="card"><h3>3. PulseSensor Prep</h3><p>說明 PPG 光學脈搏訊號與心率感測原理。</p></div>
+    <div class="card"><h3>4. Google：Supervised Learning</h3><p>介紹監督式學習、資料、模型與訓練。</p></div>
+    <div class="card"><h3>5. Google：Classification</h3><p>介紹分類模型及 Accuracy、Precision、Recall 等指標。</p></div>
+    <div class="card"><h3>6. Digital.gov：Data Visualization</h3><p>說明如何清楚、準確地呈現資料。</p></div>
+  </div>
+  <p class="small">六篇資料涵蓋專注力評估、生理感測、AI 分類與圖表呈現，作為 Wiki 的初步知識基礎。</p>
+  <div class="footer"><span>資料來源整理</span><span>03 / 06</span></div>
+</section>
+
+<section class="slide">
+  <span class="kicker">03｜系統概念</span>
+  <h2>系統如何運作？</h2>
+  <div class="flow">
+    <div class="step">① 感測器收集資料<br><span class="small">PulseSensor 擷取 PPG 脈搏訊號</span></div>
+    <div class="arrow">↓</div>
+    <div class="step">② 整理與分析資料<br><span class="small">檢查訊號品質，整理心率等特徵</span></div>
+    <div class="arrow">↓</div>
+    <div class="step">③ AI 分類模型<br><span class="small">使用標記資料訓練並評估模型</span></div>
+    <div class="arrow">↓</div>
+    <div class="step">④ 視覺化呈現<br><span class="small">以圖表呈現訊號趨勢與模型結果</span></div>
+  </div>
+  <div class="note"><b>注意：</b>心率也會受到活動量、壓力與個體差異影響，因此不能只靠心率判定專心或不專心。</div>
+  <div class="footer"><span>系統流程示意</span><span>04 / 06</span></div>
+</section>
+
+<section class="slide">
+  <span class="kicker">04｜LLM Wiki 製作流程</span>
+  <h2>先討論，再整理與生成</h2>
+  <div class="flow">
+    <div class="step">蒐集資料：匯入六篇參考資料</div><div class="arrow">↓</div>
+    <div class="step">資訊整理：摘要、分類並建立 Wiki 目錄</div><div class="arrow">↓</div>
+    <div class="step">內容檢查：找出缺漏、矛盾與未證實推論</div><div class="arrow">↓</div>
+    <div class="step">生成簡報：依 Wiki 內容製作 HTML</div><div class="arrow">↓</div>
+    <div class="step">檢查與修改：修正內容並確認頁面導覽</div>
+  </div>
+  <p class="small">這是一個循環流程：若檢查時發現資料不足，就回到資料整理或補充來源；若簡報有錯誤，就回到生成與修改階段。</p>
+  <div class="footer"><span>資訊檢索 → 組織 → 驗證 → 生成 → 返工</span><span>05 / 06</span></div>
+</section>
+
+<section class="slide">
+  <span class="kicker">05｜檢查與心得</span>
+  <h2>遇到的問題與改進方式</h2>
+  <ul>
+    <li><b>問題一：容易把心率變化直接解讀成專注程度。</b><br>改進：補上限制說明，強調心率會受多種因素影響。</li>
+    <li><b>問題二：NASA-TLX 是主觀量表，不是即時感測器。</b><br>改進：將它定位為評估或建立標籤時的參考，而非即時訊號。</li>
+    <li><b>問題三：初版 Wiki 缺少訊號處理、個人基準線與 LLM 整合細節。</b><br>改進：把這些列為知識缺口，不把尚未驗證的內容寫成已完成的功能。</li>
+  </ul>
+  <div class="note"><b>心得：</b>透過 NotebookLM 整理六篇資料，我了解系統需要感測器、AI 分析與視覺化等不同部分。先討論再生成，也能提早發現資料不足與推論過度的問題，讓最後的簡報更清楚。</div>
+  <p class="small">結論：AI 可以協助整理與分析生理資料，但專注狀態的判斷仍有侷限，應謹慎解讀模型結果。</p>
+  <div class="footer"><span>結論與學習心得</span><span>06 / 06</span></div>
+</section>
+</main>
+<nav class="controls" aria-label="簡報導覽">
+  <button id="prev" type="button">上一頁</button>
+  <span id="count">1 / 6</span>
+  <button id="next" type="button">下一頁</button>
+</nav>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let current=0;
+function show(index){
+  current=Math.max(0,Math.min(slides.length-1,index));
+  slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+  document.getElementById('count').textContent=`${current+1} / ${slides.length}`;
+  document.getElementById('prev').disabled=current===0;
+  document.getElementById('next').disabled=current===slides.length-1;
+}
+document.getElementById('prev').addEventListener('click',()=>show(current-1));
+document.getElementById('next').addEventListener('click',()=>show(current+1));
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(current+1)}
+  if(e.key==='ArrowLeft'){e.preventDefault();show(current-1)}
+});
+show(0);
+</script>
+</body>
+</html>
